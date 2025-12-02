@@ -3,23 +3,22 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  TextInput,
   Button,
   StyleSheet,
-  Switch,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import type { DrawerParamList } from "../navigation/DrawerStack";
 import { Calendar } from "react-native-calendars";
+import { Picker } from "@react-native-picker/picker";
 
 export default function SearchScreen() {
   const navigation = useNavigation<NavigationProp<DrawerParamList>>();
 
   const [location, setLocation] = useState<string>("");
   const [gearbox, setGearbox] = useState<"Automaat" | "Manuaal" | "">("");
-  const [seats, setSeats] = useState<string>("");
-  const [petsAllowed, setPetsAllowed] = useState<boolean>(false);
+  const [seats, setSeats] = useState<number | undefined>(undefined);
   const [startDate, setStartDate] = useState<string | undefined>(undefined);
   const [endDate, setEndDate] = useState<string | undefined>(undefined);
 
